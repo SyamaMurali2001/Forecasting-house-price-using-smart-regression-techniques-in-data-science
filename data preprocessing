@@ -1,0 +1,28 @@
+Before Preprocessing:
+
+import pandas as pd
+import numpy as np
+
+# Sample raw dataset
+data = {
+    'SquareFeet': [1500, 1800, 2400, 3000, 3500],
+    'NumRooms': [3, 4, 3, 5, 4],
+    'Age': [10, 15, 20, 5, 12],
+    'DistanceToCity': [10, 12, 15, 5, 8],
+    'Price': [400000, 500000, 600000, 650000, 700000]
+}
+
+df = pd.DataFrame(data)
+
+# Display before preprocessing
+print("Before Preprocessing:")
+print(df)
+
+  output
+
+     SquareFeet  NumRooms  Age  DistanceToCity   Price
+0        1500         3   10               10  400000
+1        1800         4   15               12  500000
+2        2400         3   20               15  600000
+3        3000         5    5                5  650000
+4        3500         4   12                8  700000
