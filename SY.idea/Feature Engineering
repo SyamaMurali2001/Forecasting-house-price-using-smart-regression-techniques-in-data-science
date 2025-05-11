@@ -1,0 +1,5 @@
+# Create new total square footage feature
+df['TotalSF'] = df['TotalBsmtSF'] + df['1stFlrSF'] + df['2ndFlrSF']
+
+# Age of the house
+df['HouseAge'] = df['YrSold'] - df['YearBuilt']

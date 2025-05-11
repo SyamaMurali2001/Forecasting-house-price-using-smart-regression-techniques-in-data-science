@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environment variables and Python virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+Pipfile.lock
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files (optional: only ignore if not versioning data)
+*.csv
+*.xlsx
+*.h5
+
+# Logs and system files
+*.log
+*.sqlite
+.DS_Store
+Thumbs.db
+
+# Model files
+*.pkl
+*.joblib
+*.h5
+*.sav
+
+# Kaggle or dataset files (optional)
+*.zip
+*.tar.gz
+
+# Python compiled files
+*.pyc

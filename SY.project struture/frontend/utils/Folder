@@ -1,0 +1,22 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+def preprocess_data(df):
+    # Handle missing values
+    df = df.fillna(df.median())
+    
+    # Feature Engineering (if needed)
+    df['TotalSF'] = df['TotalBsmtSF'] + df['1stFlrSF'] + df['2ndFlrSF']
+    df['HouseAge'] = df['YrSold'] - df['YearBuilt']
+
+    # Drop columns that aren't useful
+    df = df.drop(columns=['Id', 'YrSold', 'YearBuilt'])
+
+    # One-Hot Encoding (for categorical variables)
+    df = pd.get_dummies(df, drop_first=True)
+
+    # Feature Scaling
+    scaler = StandardScaler()
+    df_scaled = scaler.fit_transform(df.select_dtypes(include='number'))
+
+    return pd.DataFrame(df_scaled, columns=df.select_dtypes(include='number').columns)

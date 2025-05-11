@@ -1,0 +1,24 @@
+house-price-prediction/
+├── backend/                        # Backend Folder (Flask API)
+│   ├── app.py                      # Main Flask application
+│   ├── models/                     # Trained models and scaler
+│   │   ├── house_price_model.pkl   # Trained machine learning model
+│   │   └── scaler.pkl              # Standard Scaler (for feature scaling)
+│   ├── requirements.txt            # Python dependencies for backend
+│   └── .gitignore                  # Ignore unnecessary files (e.g., .env, .pyc)
+│
+├── frontend/                       # Frontend Folder (HTML, CSS, JS)
+│   ├── index.html                  # HTML structure for the app
+│   ├── styles.css                  # Styles for frontend
+│   └── script.js                   # JavaScript for handling form submission and API calls
+│
+├── data/                           # Data Folder
+│   ├── train.csv                   # Training data (Ames Housing dataset)
+│   └── test.csv                    # Test data (Ames Housing dataset)
+│
+├── utils/                          # Utility functions
+│   └── preprocess.py               # Preprocessing steps (like handling missing values, encoding, etc.)
+│
+├── .gitignore                      # Ignore unnecessary files (e.g., .env, .pyc, etc.)
+├── README.md                       # Project documentation and instructions
+└── requirements.txt                # List of Python dependencies for the entire project

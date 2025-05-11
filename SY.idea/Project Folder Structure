@@ -1,0 +1,17 @@
+house-price-prediction/
+│
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── main.py
+├── test.py
+├── utils.py                # Helper functions (optional)
+├── models/                 # Trained models
+│   └── house_price_model.pkl
+├── data/                   # Datasets
+│   ├── train.csv
+│   └── test.csv
+├── notebooks/              # Jupyter notebooks for exploration (optional)
+│   └── EDA.ipynb
+└── .vscode/                # VS Code settings
+    └── settings.json

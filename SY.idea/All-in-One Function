@@ -1,0 +1,25 @@
+def preprocess_data(df, drop_outliers=True):
+    df = df.copy()
+    df.drop(['Id'], axis=1, errors='ignore', inplace=True)
+    df = df.dropna(thresh=0.7 * len(df), axis=1)
+
+    # Impute missing
+    numeric_cols = df.select_dtypes(include=['number']).columns
+    df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].median())
+    categorical_cols = df.select_dtypes(include=['object']).columns
+    df[categorical_cols] = df[categorical_cols].fillna(df[categorical_cols].mode().iloc[0])
+
+    # Feature engineering
+    df['TotalSF'] = df.get('TotalBsmtSF', 0) + df.get('1stFlrSF', 0) + df.get('2ndFlrSF', 0)
+    df['HouseAge'] = df.get('YrSold', 0) - df.get('YearBuilt', 0)
+
+    # Encode
+    df = pd.get_dummies(df, drop_first=True)
+
+    # Outlier removal
+    if drop_outliers and 'SalePrice' in df:
+        df = df[df['SalePrice'] < 500000]
+
+    y = df['SalePrice'] if 'SalePrice' in df.columns else None
+    X = df.drop('SalePrice', axis=1, errors='ignore')
+    return (X, y) if y is not None else X

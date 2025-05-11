@@ -1,0 +1,45 @@
+from flask import Flask, request, jsonify
+import joblib
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Load the trained model and scaler
+model = joblib.load('models/house_price_model.pkl')
+scaler = joblib.load('models/scaler.pkl')
+
+app = Flask(__name__)
+
+# Preprocess input function (as used during training)
+def preprocess_data(data):
+    data = pd.DataFrame([data])
+    data = pd.get_dummies(data, drop_first=True)  # Ensure dummy variables
+    return scaler.transform(data)  # Scale the features
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        data = request.get_json()
+
+        # Extract input features
+        bedrooms = data['bedrooms']
+        sqft_living = data['sqft_living']
+        sqft_lot = data['sqft_lot']
+
+        # Prepare data for prediction
+        input_data = {
+            'Bedrooms': bedrooms,
+            'SqftLiving': sqft_living,
+            'SqftLot': sqft_lot
+        }
+
+        # Preprocess and make prediction
+        processed_data = preprocess_data(input_data)
+        predicted_price = model.predict(processed_data)[0]
+
+        return jsonify({'predicted_price': predicted_price})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True)

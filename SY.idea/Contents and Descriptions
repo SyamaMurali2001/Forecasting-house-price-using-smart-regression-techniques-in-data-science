@@ -1,0 +1,11 @@
+| File/Folder        | Description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| `main.py`          | Trains regression models and saves them.                          |
+| `test.py`          | Loads model, evaluates it on test data.                           |
+| `utils.py`         | Contains preprocessing and helper functions.                      |
+| `requirements.txt` | Python libraries required.                                        |
+| `.gitignore`       | Tells Git what to ignore (like `.vscode/`, `__pycache__/`, etc.). |
+| `README.md`        | Project overview, usage instructions.                             |
+| `models/`          | Folder for storing serialized models (`.pkl`).                    |
+| `data/`            | Input datasets (e.g., from Kaggle).                               |
+| `.vscode/`         | Settings for Python interpreter and linting in VS Code.           |

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict House Price</h1>
+        <form id="prediction-form">
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" id="bedrooms" required>
+            
+            <label for="sqft_living">Living Area (sqft):</label>
+            <input type="number" id="sqft_living" required>
+            
+            <label for="sqft_lot">Lot Area (sqft):</label>
+            <input type="number" id="sqft_lot" required>
+            
+            <button type="submit">Predict Price</button>
+        </form>
+        
+        <h2>Predicted Price: <span id="price-result"></span></h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

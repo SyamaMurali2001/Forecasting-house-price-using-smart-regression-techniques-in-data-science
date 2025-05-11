@@ -1,0 +1,9 @@
+from sklearn.preprocessing import StandardScaler
+import joblib
+
+scaler = StandardScaler()
+X = df.drop('SalePrice', axis=1)
+X_scaled = scaler.fit_transform(X)
+
+# Save the scaler
+joblib.dump(scaler, 'models/scaler.pkl')

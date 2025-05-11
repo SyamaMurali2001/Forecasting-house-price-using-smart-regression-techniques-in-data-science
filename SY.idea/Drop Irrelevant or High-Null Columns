@@ -1,0 +1,6 @@
+# Drop columns with > 30% missing values
+null_thresh = 0.3
+df = df.dropna(thresh=(1 - null_thresh) * len(df), axis=1)
+
+# Drop non-informative ID column
+df.drop(['Id'], axis=1, inplace=True)
