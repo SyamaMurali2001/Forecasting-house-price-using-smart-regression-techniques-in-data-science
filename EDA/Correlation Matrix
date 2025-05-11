@@ -1,0 +1,6 @@
+# Correlation matrix
+plt.figure(figsize=(8, 6))
+correlation_matrix = df[['SquareFeet', 'NumRooms', 'Age', 'DistanceToCity', 'Price']].corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+plt.title('Correlation Matrix')
+plt.show()

@@ -1,0 +1,25 @@
+# Boxplot for outliers in numerical features
+plt.figure(figsize=(12, 8))
+
+# Boxplot for SquareFeet
+plt.subplot(2, 2, 1)
+sns.boxplot(x=df['SquareFeet'], color='blue')
+plt.title('Boxplot of SquareFeet')
+
+# Boxplot for NumRooms
+plt.subplot(2, 2, 2)
+sns.boxplot(x=df['NumRooms'], color='green')
+plt.title('Boxplot of NumRooms')
+
+# Boxplot for Age
+plt.subplot(2, 2, 3)
+sns.boxplot(x=df['Age'], color='orange')
+plt.title('Boxplot of Age')
+
+# Boxplot for Price
+plt.subplot(2, 2, 4)
+sns.boxplot(x=df['Price'], color='red')
+plt.title('Boxplot of Price')
+
+plt.tight_layout()
+plt.show()

@@ -1,0 +1,4 @@
+# Pairplot to see relationships between features
+sns.pairplot(df[['SquareFeet', 'NumRooms', 'Age', 'DistanceToCity', 'Price']])
+plt.suptitle('Pairplot of Features', y=1.02)
+plt.show()
